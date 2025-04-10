@@ -248,7 +248,7 @@ def home():
     session['acc_lst'] = []
     return render_template("index.html")
 
-@app.route('/home_again', methods=['POST'])
+@app.route('/home_again', methods=['GET','POST'])
 def home_again():
     return render_template("index.html")
 
