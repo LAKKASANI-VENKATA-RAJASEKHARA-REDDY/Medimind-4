@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+    <header>
+        <a href="{{url_for('home')}}"><img src="static/cover.png" alt="AI Medical Logo" class="logo"> </a>
+    </header>
+    <div class="levels">
+
+        <div class="level1">
+            {% if level_no >= 1 %}
+                <a href="{{ url_for('level1') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 1: Everyday Ailments</strong><br>
+                    Test your knowledge of common health issues and remedies.
+                </div>
+            </a>
+        </div>
+        
+
+        <div class="level2">
+            {% if level_no >= 2 %}
+                <a href="{{ url_for('level2') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 2: Infections & Viruses</strong><br>
+                    Identify and understand various infectious diseases.
+                </div>
+            </a>
+        </div>
+        
+
+        <div class="level3">  
+            {% if level_no >= 3%}
+                <a href="{{ url_for('level3') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 3: Chronic Conditions</strong><br>
+                    Explore long-term health challenges and management.
+                </div>
+            </a>
+        </div>
+
+        <div class="level4">
+            {% if level_no >= 4%}
+                <a href="{{ url_for('level4') }}">
+            {% else%}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 4: Skin & Autoimmune Disorders</strong><br>
+                    Learn about immune system complexities and skin conditions.
+                </div>
+            </a>
+        </div>
+
+        <div class="level5">
+            {% if level_no >= 5%}
+                <a href="{{ url_for('level5') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 5: Neurological Challenges</strong><br>
+                    Delve into the intricacies of the nervous system.
+                </div>
+            </a>
+        </div>
+
+        <div class="level6">
+            {% if level_no >= 6%}
+                <a href="{{ url_for('level6') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 6: Cardiovascular Crises</strong><br>
+                    Understand heart-related emergencies and conditions.
+                </div>
+            </a>
+        </div>
+
+        <div class="level7">
+            {% if level_no >= 7%}
+                <a href="{{ url_for('level7') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 7: Organ Failures & Disorders</strong><br>
+                    Explore the complexities of organ health and disease.
+                </div>
+            </a>
+        </div>
+
+        <div class="level8">
+            {% if level_no >= 8 %}
+                <a href="{{ url_for('level8') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 8: Rare Syndromes & Genetic Disorders</strong><br>
+                    Uncover the mysteries of genetic and uncommon conditions.
+                </div>
+            </a>
+        </div>
+
+        <div class="level9">
+            {% if level_no >= 9%}
+                <a href="{{ url_for('level9') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 9: Cancers & Terminal Illnesses</strong><br>
+                    Gain insight into serious and life-altering diseases.
+                </div>
+            </a>
+        </div>
+
+        <div class="level10">
+            {% if level_no >= 10 %}
+                <a href="{{ url_for('level10') }}">
+            {% else %}
+                <a href="#" style="cursor: not-allowed; opacity: 0.6;">
+            {% endif %}
+                <div class="level-container">
+                    <strong>Level 10: Deadly & Mysterious Diseases</strong><br>
+                    Confront the most challenging and enigmatic health puzzles.
+                </div>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

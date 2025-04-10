@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 9: Extreme Conditions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{url_for('home')}}"><img src="static/cover.png" alt="AI Medical Logo" class="logo"> </a>
+    </header>
+  <div class="Q">
+    <h2>Level 9: Cancers & Terminal Illnesses</h2>
+
+            
+              {% if status1 == "display" %}
+              
+                {% if question == "display" %}
+                    <form action="/gemini" method="post" class="que">
+                        <strong>What are the common symptoms and risk factors for lung cancer?</strong>
+                        <input type="hidden" name="level" value="9">
+                        <input type="hidden" name="question" value="What are the common symptoms and risk factors for lung cancer?">
+                        <br>
+                        <textarea name="answer" rows="3" cols="50" required></textarea>
+                        <input value="1" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                    </form>
+                {% endif %}
+          
+                  {% if ai_answers %}
+                      <strong>What are the common symptoms and risk factors for lung cancer?</strong>
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="1" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What are the common symptoms and risk factors for lung cancer?">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="9">
+                          <input value="1" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>What are the common symptoms and risk factors for lung cancer?</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="1">
+                        <input type="hidden" name="level" value="9">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+
+              {% endif %}
+          
+            
+              {% if status2 == "display" %}
+                {% if question == "display" %}
+                    <form action="/gemini" method="post" class="que">
+                        <strong>Describe the symptoms and treatment options for breast cancer.</strong>
+                        <input type="hidden" name="level" value="9">
+                        <input type="hidden" name="question" value="Describe the symptoms and treatment options for breast cancer.">
+                        <br>
+                        <textarea name="answer" rows="3" cols="50" required></textarea>
+                        <input value="9" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                    </form>
+                {% endif %}
+              
+                      {% if ai_answers %}
+                          <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                          <strong>Describe the symptoms and treatment options for breast cancer.</strong>
+                          <form action="/rewrite" method="post" class="que">
+                              <input value="9" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="9">
+                              <button type="submit">Re-write</button>
+                          </form>
+                  
+                          <form action="/show_answer" method="post" class="que">
+                              <input type="hidden" name="question" value="Describe the symptoms and treatment options for breast cancer.">
+                              <button type="submit">Show Answer</button>
+                              <input value="9" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="9">
+                              {% if status == "ok" %}
+                                  <a name="AI1">{{ ai_answers }}</a>
+                              {% endif %}
+                          </form>
+                  
+                      {% elif ai_answers == "" %}
+                        <strong>Describe the symptoms and treatment options for breast cancer.</strong>
+                        <p style="font-weight: bold;">CORRECT ANSWER</p>
+                        <form action="/next" method="post" class="que">
+                            <input type="hidden" name="form_id" value="9">
+                            <input type="hidden" name="level" value="9">
+                            <button>NEXT</button>
+                        </form>
+                      {% endif %}
+
+              {% endif %}
+            
+            
+            
+                {% if status3 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>What are the symptoms and risk factors for colorectal cancer?</strong>
+                            <input type="hidden" name="question" value="What are the symptoms and risk factors for colorectal cancer?">
+                            <br>
+                            <textarea name="answer" rows="3" cols="50" required></textarea>
+                            <input type="hidden" name="level" value="9">
+                            <input value="3" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>What are the symptoms and risk factors for colorectal cancer?</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="3" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What are the symptoms and risk factors for colorectal cancer?">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="9">
+                          <input value="3" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>What are the symptoms and risk factors for colorectal cancer?</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="level" value="9">
+                        <input type="hidden" name="form_id" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+
+                {% endif %}
+            
+
+
+            
+                {% if status4 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>Explain the symptoms and treatment of leukemia.</strong>
+                            <input type="hidden" name="level" value="9">
+                            <input type="hidden" name="question" value="Explain the symptoms and treatment of leukemia.">
+                            <br>
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="9" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                      
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Explain the symptoms and treatment of leukemia.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Explain the symptoms and treatment of leukemia.">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="9">
+                          <input value="9" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+                  
+                  {% elif ai_answers == "" %}
+                    <strong>Explain the symptoms and treatment of leukemia.</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="level" value="9">
+                        <input type="hidden" name="form_id" value="9">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+
+            
+                  {% if status5 == "display" %}
+                    {% if question == "display" %}
+                      <form action="/gemini" method="post" class="que">
+                        <input type="hidden" name="level" value="9">
+                        <strong>What are the symptoms and risk factors for prostate cancer?</strong>
+                        <br>
+                        <input type="hidden" name="question" value="What are the symptoms and risk factors for prostate cancer?">
+                        <br>
+                        <textarea name="answer" rows="4" cols="50" required></textarea>
+                        <input value="9" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                      </form>
+                    {% endif %}
+
+                      
+                      {% if ai_answers %}
+                          <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                          <strong>What are the symptoms and risk factors for prostate cancer?</strong>
+                          <form action="/rewrite" method="post" class="que">
+                              <input value="9" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="9">
+                              <button type="submit">Re-write</button>
+                          </form>
+                  
+                          <form action="/show_answer" method="post" class="que">
+                              <input type="hidden" name="question" value="What are the symptoms and risk factors for prostate cancer?">
+                              <button type="submit">Show Answer</button>
+                              <input type="hidden" name="level" value="9">
+                              <input value="9" type="hidden" name="form_id">
+                              {% if status == "ok" %}
+                                  <a name="AI1">{{ ai_answers }}</a>
+                              {% endif %}
+                          </form>
+                  
+                      {% elif ai_answers == "" %}
+                        <strong>What are the symptoms and risk factors for prostate cancer?</strong>
+                        <p style="font-weight: bold;">CORRECT ANSWER</p>
+                        <form action="/next" method="post" class="que">
+                            <input type="hidden" name="form_id" value="9">
+                            <input type="hidden" name="level" value="9">
+                            <button>NEXT</button>
+                        </form>
+                      {% endif %}
+                  {% endif %}
+            
+
+            
+                  {% if status6 == "display" %}
+                    {% if question == "display" %}
+                      <form action="/gemini" method="post" class="que">
+                        <strong>Describe the symptoms and treatment of lymphoma.</strong>
+                        <input type="hidden" name="question" value=">Describe the symptoms and treatment of lymphoma.">
+                        <br>
+                        <textarea name="answer" rows="4" cols="50" required></textarea>
+                        <input value="6" type="hidden" name="form_id">
+                        <input type="hidden" name="level" value="9">
+                        <button>Check Answer</button>
+                      </form>
+                    {% endif %}
+
+                      
+                      {% if ai_answers %}
+                          <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                          <strong>>Describe the symptoms and treatment of lymphoma.</strong>
+                          <form action="/rewrite" method="post" class="que">
+                              <input value="6" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="9">
+                              <button type="submit">Re-write</button>
+                          </form>
+                  
+                          <form action="/show_answer" method="post" class="que">
+                              <input type="hidden" name="question" value=">Describe the symptoms and treatment of lymphoma.">
+                              <button type="submit">Show Answer</button>
+                              <input type="hidden" name="level" value="9">
+                              <input value="6" type="hidden" name="form_id">
+                              {% if status == "ok" %}
+                                  <a name="AI1">{{ ai_answers }}</a>
+                              {% endif %}
+                          </form>
+                  
+                      {% elif ai_answers == "" %}
+                        <strong>Describe the symptoms and treatment of lymphoma.</strong>
+                        <p style="font-weight: bold;">CORRECT ANSWER</p>
+                        <form action="/next" method="post" class="que">
+                            <input type="hidden" name="level" value="9">
+                            <input type="hidden" name="form_id" value="6">
+                            <button>NEXT</button>
+                        </form>
+                      {% endif %}
+              {% endif %}
+            
+            
+                  {% if status7 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                        <strong>What are the symptoms and causes of pancreatic cancer?</strong>
+                        <input type="hidden" name="level" value="9">
+                        <input type="hidden" name="question" value="What are the symptoms and causes of pancreatic cancer?">
+                        <br>
+                        <textarea name="answer" rows="4" cols="50" required></textarea>
+                        <input value="9" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                    
+                    {% if ai_answers %}
+                        <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                        <strong>What are the symptoms and causes of pancreatic cancer?</strong>
+                        <input type="hidden" name="level" value="9">
+                        <form action="/rewrite" method="post" class="que">
+                            <input value="9" type="hidden" name="form_id">
+                            <button type="submit">Re-write</button>
+                        </form>
+                
+                        <form action="/show_answer" method="post" class="que">
+                            <button type="submit">Show Answer</button>
+                            <input type="hidden" name="question" value="What are the symptoms and causes of pancreatic cancer?">
+                            <input value="9" type="hidden" name="form_id">
+                            <input type="hidden" name="level" value="9">
+                            {% if status == "ok" %}
+                                <a name="AI1">{{ ai_answers }}</a>
+                            {% endif %}
+                        </form>
+                
+                    {% elif ai_answers == "" %}
+                      <strong>What are the symptoms and causes of pancreatic cancer?</strong>
+                      <p style="font-weight: bold;">CORRECT ANSWER</p>
+                      <form action="/next" method="post" class="que">
+                          <input type="hidden" name="form_id" value="9">
+                          <input type="hidden" name="level" value="9">
+                          <button>NEXT</button>
+                      </form>
+                    {% endif %}
+                  {% endif %}
+
+            
+            
+              {% if status8 == "display" %}
+                {% if question == "display" %}
+                  <form action="/gemini" method="post" class="que">
+                    <strong>Explain the symptoms and treatment of melanoma.</strong>
+                    <input type="hidden" name="question" value="Explain the symptoms and treatment of melanoma.">
+                    <br>
+                    <textarea name="answer" rows="4" cols="50" required></textarea>
+                    <input value="9" type="hidden" name="form_id">
+                    <input type="hidden" name="level" value="9">
+                    <button>Check Answer</button>
+                  </form>
+                {% endif %}
+
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Explain the symptoms and treatment of melanoma.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Explain the symptoms and treatment of melanoma.">
+                          <button type="submit">Show Answer</button>
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>Explain the symptoms and treatment of melanoma.</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="9">
+                        <input type="hidden" name="level" value="9">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+            
+                {% if status9 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>What are the symptoms and risk factors for ovarian cancer?</strong>
+                            <input type="hidden" name="level" value="9">
+                            <input type="hidden" name="question" value="What are the symptoms and risk factors for ovarian cancer?">
+                            <br>
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="9" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>What are the symptoms and risk factors for ovarian cancer?</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What are the symptoms and risk factors for ovarian cancer?">
+                          <button type="submit">Show Answer</button>
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>What are the symptoms and risk factors for ovarian cancer?</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="9">
+                        <input type="hidden" name="level" value="9">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+            
+                {% if status10 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>Describe the symptoms and treatment of brain tumors.</strong>
+                            <input type="hidden" name="question" value="Describe the symptoms and management of vitiligo.">
+                            <br>
+                            <input type="hidden" name="level" value="9">
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="10" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Describe the symptoms and treatment of brain tumors.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="10" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Describe the symptoms and management of vitiligo.">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="9">
+                          <input value="10" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>Describe the symptoms and treatment of brain tumors.</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="10">
+                        <input type="hidden" name="level" value="9">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+            
+                {% if status11 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>What is the difference between an epidemic and a pandemic?</strong>
+                            <input type="hidden" name="question" value="What is the difference between an epidemic and a pandemic?">
+                            <br>
+                            <input type="hidden" name="level" value="9">
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="11" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>What is the difference between an epidemic and a pandemic?</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input type="hidden" name="level" value="9">
+                          <input value="11" type="hidden" name="form_id">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What is the difference between an epidemic and a pandemic?">
+                          <button type="submit">Show Answer</button>
+                          <input value="11" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="9">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="11">
+                        <input type="hidden" name="level" value="9">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+              {% endif %}
+            
+            
+              {% if status12 == "display" %}
+                {% if question == "display" %}
+                  <form action="/gemini" method="post" class="que">
+                      <strong>Describe the symptoms and treatment of tuberculosis.</strong>
+                      <input type="hidden" name="question" value="Describe the symptoms and treatment of tuberculosis.">
+                      <br>
+                      <textarea name="answer" rows="4" cols="50" required></textarea>
+                      <input type="hidden" name="form_id" value="12">
+                      <input type="hidden" name="level" value="9">
+                      <button type="submit">Check Answer</button>
+                  </form>
+                {% endif %}
+              
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Describe the symptoms and treatment of tuberculosis.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input type="hidden" name="form_id" value="12">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Describe the symptoms and treatment of tuberculosis.">
+                          <input type="hidden" name="form_id" value="12">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">Show Answer</button>
+                      </form>
+              
+                      {% if status == "ok" %}
+                          <p><strong>AI Answer:</strong> {{ ai_answers }}</p>
+                      {% endif %}
+              
+                  {% else %}
+                      <p>Correct Answer</p>
+                      <form action="/next" method="post" class="que">
+                          <input type="hidden" name="form_id" value="12">
+                          <input type="hidden" name="level" value="9">
+                          <button type="submit">NEXT</button>
+                      </form>
+                  {% endif %}  
+          
+              {% endif %} 
+</div>
+</body>
+</html>
+
+
+

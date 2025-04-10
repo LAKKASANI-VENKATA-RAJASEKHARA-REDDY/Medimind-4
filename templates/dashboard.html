@@ -1,0 +1,4 @@
+<h1>Welcome, {{ current_user.email }}</h1>
+<p>Your current level: {{ level }}</p>
+<a href="{{ url_for('level', level=level) }}">Continue to Level {{ level }}</a>
+<a href="{{ url_for('logout') }}">Logout</a>

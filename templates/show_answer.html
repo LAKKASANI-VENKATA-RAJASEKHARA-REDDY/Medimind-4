@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a href="{{url_for('home')}}"><img src="static/cover.png" alt="AI Medical Logo" class="logo"> </a>
+</header>
+
+  <div class="Q">
+    <a style="font-family: 'roboto'; font-size: large;">{{ question }}</a>
+    <br>
+
+    <!-- Show Answer Button -->
+    <form action="/show_answer" method="post" style="display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;">
+        {% if type == "hidden" %}
+            <button type="submit" style="display: none;">Show Answer</button>
+        {% else %}
+            <button type="submit">Show Answer</button>
+        {% endif %}
+    </form>
+
+    <!-- AI Answer Display -->
+    {% if status == "ok" %}
+        <div name="AI1" class="AI1">{{ ai_answers }}</div>
+    {% endif %}
+
+    <!-- Next Button Form -->
+    <form action="/next" method="post" class="next" >
+        <input type="hidden" name="form_id" value="{{ value }}">
+        <input type="hidden" name="level" value="{{ level }}">
+        <button type="submit">NEXT</button>
+    </form>
+  </div>
+
+</body>
+</html>

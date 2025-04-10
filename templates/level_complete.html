@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div>
+      {% if level == 1%}
+        <section>
+            <a>Clinic cleared. Ready to move from common cases to battling unseen infections?</a>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="1">
+          <button>YES</button>
+        </form>
+  
+        <form action="/home_again" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 2 %}
+        <section>
+            <strong>Contagion contained. Ready to manage the long-term impacts of chronic conditions?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="2">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 3 %}
+        <section>
+            <strong>Long-term care established. Ready to face the complexities of the body's own defenses in skin and autoimmune disorders?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="3">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 4 %}
+        <section>
+            <strong>Immune system modulated. Ready to challenge the intricate puzzles of the neurological challenges?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="4">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 5 %}
+        <section>
+            <strong>Neural pathways stabilized. Ready to confront the urgent demands of cardiovascular crises?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="5">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 6 %}
+        <section>
+            <strong>Life sustained. Prepared to support failing systems in the face of organ failures and disorders?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="6">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 7 %}
+        <section>
+            <strong>Systems stabilized. Ready to unravel the mysteries of rare syndromes and genetic disorders?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="7">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% elif level == 8 %}
+        <section>
+            <strong>Genetic puzzle solved. Ready to provide care in the face of the ultimate challenge: cancers and terminal illnesses?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="8">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {%elif level == 9 %}
+        <section>
+            <strong>Against the odds, you have prevailed. Ready to face the unknown, the truly deadly and the mysterious diseases?</strong>
+        </section>
+
+        <form action="/next_level" method="post">
+          <input type="hidden" name="level" value="9">
+          <button>YES</button>
+        </form>
+
+        <form action="/" method="post">
+          <button>NO</button>
+        </form>
+      {% else %}
+        <section>
+            <strong>The very edge of medical science has been pushed. Are you prepared to face the next medical frontier?</strong>
+        </section>
+        <form action="/">
+          <button>Return to Home</button>
+        </form>
+        
+      {% endif %}
+
+            
+
+
+      
+    </div>
+</body>
+</html>
+

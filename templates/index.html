@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Medical Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <a href="{{url_for('home')}}"><img src="static/cover.png" alt="AI Medical Logo" class="logo"> </a>
+        <nav class="navbar">
+           <ul class="nav-links">
+               
+                <a href="{{url_for('home')}}">Home</a>
+                <a href="{{ url_for('profile_info')}}">Your Stats</a>
+                <a href="{{ url_for('leaderboard')}}">Hall of Fame</a>
+                <a href="{{ url_for('logout') }}">Exit Quest</a>
+            </ul>
+           
+        </nav>
+    </header>
+    
+
+    
+    <section class="image-text">
+        <img src="static/back2.webp" alt="AI Medical Illustration">
+        <div class="text-content">
+            <h2>Embark on the AI Medical Quest!</h2>
+            <p>Conquer 10 levels of medical challenges, each verified by advanced AI.</p>
+            <p>Sharpen your skills, accumulate knowledge, and rise through the ranks.</p>
+            <p>Will you become the ultimate medical maestro?</p>
+    
+            <form action="/register" class="diagnosis-form">
+                <button type="submit" class="start-btn">🩺 Begin Your Medical Quest!</button>
+            </form>
+        </div>
+    </section>
+    
+   
+
+</body>
+</html>

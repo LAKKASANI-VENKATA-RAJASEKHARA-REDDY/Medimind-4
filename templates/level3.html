@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3: Intermediate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{url_for('home')}}"><img src="static/cover.png" alt="AI Medical Logo" class="logo"> </a>
+    </header>
+  <div class="Q">
+    <h2>Level 3: Chronic Conditions</h2>
+
+            
+              {% if status1 == "display" %}
+              
+                {% if question == "display" %}
+                    <form action="/gemini" method="post" class="que">
+                        <strong>What are the key lifestyle changes recommended for managing type 2 diabetes?</strong>
+                        <input type="hidden" name="level" value="3">
+                        <input type="hidden" name="question" value="What are the key lifestyle changes recommended for managing type 2 diabetes?">
+                        <br>
+                        <textarea name="answer" rows="3" cols="50" required></textarea>
+                        <input value="1" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                    </form>
+                {% endif %}
+          
+                  {% if ai_answers %}
+                      <strong>What are the key lifestyle changes recommended for managing type 2 diabetes?</strong>
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="1" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What are the key lifestyle changes recommended for managing type 2 diabetes?">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="3">
+                          <input value="1" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>What are the key lifestyle changes recommended for managing type 2 diabetes?</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="1">
+                        <input type="hidden" name="level" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+
+              {% endif %}
+          
+            
+              {% if status2 == "display" %}
+                {% if question == "display" %}
+                    <form action="/gemini" method="post" class="que">
+                    <strong>Describe the symptoms and long-term effects of rheumatoid arthritis.</strong>
+                    <input type="hidden" name="level" value="3">
+                    <input type="hidden" name="question" value="Describe the symptoms and long-term effects of rheumatoid arthritis.">
+                    <br>
+                    <textarea name="answer" rows="3" cols="50" required></textarea>
+                    <input value="3" type="hidden" name="form_id">
+                    <button>Check Answer</button>
+                    </form>
+                {% endif %}
+              
+                      {% if ai_answers %}
+                          <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                          <strong>Describe the symptoms and long-term effects of rheumatoid arthritis.</strong>
+                          <form action="/rewrite" method="post" class="que">
+                              <input value="3" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="3">
+                              <button type="submit">Re-write</button>
+                          </form>
+                  
+                          <form action="/show_answer" method="post" class="que">
+                              <input type="hidden" name="question" value="Describe the symptoms and long-term effects of rheumatoid arthritis.">
+                              <button type="submit">Show Answer</button>
+                              <input value="3" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="3">
+                              {% if status == "ok" %}
+                                  <a name="AI1">{{ ai_answers }}</a>
+                              {% endif %}
+                          </form>
+                  
+                      {% elif ai_answers == "" %}
+                        <strong>Describe the symptoms and long-term effects of rheumatoid arthritis.</strong>
+                        <p style="font-weight: bold;">CORRECT ANSWER</p>
+                        <form action="/next" method="post" class="que">
+                            <input type="hidden" name="form_id" value="3">
+                            <input type="hidden" name="level" value="3">
+                            <button>NEXT</button>
+                        </form>
+                      {% endif %}
+
+              {% endif %}
+            
+            
+            
+                {% if status3 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>What are the common triggers and management strategies for asthma?</strong>
+                            <input type="hidden" name="question" value="What are the common triggers and management strategies for asthma?">
+                            <br>
+                            <textarea name="answer" rows="3" cols="50" required></textarea>
+                            <input type="hidden" name="level" value="3">
+                            <input value="3" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>What are the common triggers and management strategies for asthma?</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="3" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What are the common triggers and management strategies for asthma?">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="3">
+                          <input value="3" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>What are the common triggers and management strategies for asthma?</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="level" value="3">
+                        <input type="hidden" name="form_id" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+
+                {% endif %}
+            
+
+
+            
+                {% if status4 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>Explain the differences between Crohn's disease and ulcerative colitis.</strong>
+                            <input type="hidden" name="level" value="3">
+                            <input type="hidden" name="question" value="Explain the differences between Crohn's disease and ulcerative colitis.">
+                            <br>
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="4" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                      
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Explain the differences between Crohn's disease and ulcerative colitis.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="4" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Explain the differences between Crohn's disease and ulcerative colitis.">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="3">
+                          <input value="4" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+                  
+                  {% elif ai_answers == "" %}
+                    <strong>Explain the differences between Crohn's disease and ulcerative colitis.</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="level" value="3">
+                        <input type="hidden" name="form_id" value="4">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+
+            
+                  {% if status5 == "display" %}
+                    {% if question == "display" %}
+                      <form action="/gemini" method="post" class="que">
+                        <input type="hidden" name="level" value="3">
+                        <strong>What are the risk factors and prevention methods for osteoporosis?</strong>
+                        <br>
+                        <input type="hidden" name="question" value="What are the risk factors and prevention methods for osteoporosis?">
+                        <br>
+                        <textarea name="answer" rows="4" cols="50" required></textarea>
+                        <input value="5" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                      </form>
+                    {% endif %}
+
+                      
+                      {% if ai_answers %}
+                          <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                          <strong>What are the risk factors and prevention methods for osteoporosis?</strong>
+                          <form action="/rewrite" method="post" class="que">
+                              <input value="5" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="3">
+                              <button type="submit">Re-write</button>
+                          </form>
+                  
+                          <form action="/show_answer" method="post" class="que">
+                              <input type="hidden" name="question" value="What are the risk factors and prevention methods for osteoporosis?">
+                              <button type="submit">Show Answer</button>
+                              <input type="hidden" name="level" value="3">
+                              <input value="5" type="hidden" name="form_id">
+                              {% if status == "ok" %}
+                                  <a name="AI1">{{ ai_answers }}</a>
+                              {% endif %}
+                          </form>
+                  
+                      {% elif ai_answers == "" %}
+                        <strong>What are the risk factors and prevention methods for osteoporosis?</strong>
+                        <p style="font-weight: bold;">CORRECT ANSWER</p>
+                        <form action="/next" method="post" class="que">
+                            <input type="hidden" name="form_id" value="5">
+                            <input type="hidden" name="level" value="3">
+                            <button>NEXT</button>
+                        </form>
+                      {% endif %}
+                  {% endif %}
+            
+
+            
+                  {% if status6 == "display" %}
+                    {% if question == "display" %}
+                      <form action="/gemini" method="post" class="que">
+                        <strong>Describe the symptoms and complications of chronic kidney disease.</strong>
+                        <input type="hidden" name="question" value="Describe the symptoms and complications of chronic kidney disease.">
+                        <br>
+                        <textarea name="answer" rows="4" cols="50" required></textarea>
+                        <input value="6" type="hidden" name="form_id">
+                        <input type="hidden" name="level" value="3">
+                        <button>Check Answer</button>
+                      </form>
+                    {% endif %}
+
+                      
+                      {% if ai_answers %}
+                          <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                          <strong>Describe the symptoms and complications of chronic kidney disease.</strong>
+                          <form action="/rewrite" method="post" class="que">
+                              <input value="6" type="hidden" name="form_id">
+                              <input type="hidden" name="level" value="3">
+                              <button type="submit">Re-write</button>
+                          </form>
+                  
+                          <form action="/show_answer" method="post" class="que">
+                              <input type="hidden" name="question" value="Describe the symptoms and complications of chronic kidney disease.">
+                              <button type="submit">Show Answer</button>
+                              <input type="hidden" name="level" value="3">
+                              <input value="6" type="hidden" name="form_id">
+                              {% if status == "ok" %}
+                                  <a name="AI1">{{ ai_answers }}</a>
+                              {% endif %}
+                          </form>
+                  
+                      {% elif ai_answers == "" %}
+                        <strong>Describe the symptoms and complications of chronic kidney disease.</strong>
+                        <p style="font-weight: bold;">CORRECT ANSWER</p>
+                        <form action="/next" method="post" class="que">
+                            <input type="hidden" name="level" value="3">
+                            <input type="hidden" name="form_id" value="6">
+                            <button>NEXT</button>
+                        </form>
+                      {% endif %}
+              {% endif %}
+            
+            
+                  {% if status7 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                        <strong>What are the treatment options for chronic obstructive pulmonary disease (COPD)?</strong>
+                        <input type="hidden" name="level" value="3">
+                        <input type="hidden" name="question" value="What are the treatment options for chronic obstructive pulmonary disease (COPD)?">
+                        <br>
+                        <textarea name="answer" rows="4" cols="50" required></textarea>
+                        <input value="7" type="hidden" name="form_id">
+                        <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                    
+                    {% if ai_answers %}
+                        <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                        <strong>What are the treatment options for chronic obstructive pulmonary disease (COPD)?</strong>
+                        <input type="hidden" name="level" value="3">
+                        <form action="/rewrite" method="post" class="que">
+                            <input value="7" type="hidden" name="form_id">
+                            <button type="submit">Re-write</button>
+                        </form>
+                
+                        <form action="/show_answer" method="post" class="que">
+                            <button type="submit">Show Answer</button>
+                            <input type="hidden" name="question" value="What are the treatment options for chronic obstructive pulmonary disease (COPD)?">
+                            <input value="7" type="hidden" name="form_id">
+                            <input type="hidden" name="level" value="3">
+                            {% if status == "ok" %}
+                                <a name="AI1">{{ ai_answers }}</a>
+                            {% endif %}
+                        </form>
+                
+                    {% elif ai_answers == "" %}
+                      <strong>What are the treatment options for chronic obstructive pulmonary disease (COPD)?
+                      <p style="font-weight: bold;">CORRECT ANSWER</p>
+                      <form action="/next" method="post" class="que">
+                          <input type="hidden" name="form_id" value="7">
+                          <input type="hidden" name="level" value="3">
+                          <button>NEXT</button>
+                      </form>
+                    {% endif %}
+                  {% endif %}
+
+            
+            
+              {% if status8 == "display" %}
+                {% if question == "display" %}
+                  <form action="/gemini" method="post" class="que">
+                    <strong>Explain the role of diet and exercise in managing hypertension.</strong>
+                    <input type="hidden" name="question" value="Explain the role of diet and exercise in managing hypertension.">
+                    <br>
+                    <textarea name="answer" rows="4" cols="50" required></textarea>
+                    <input value="8" type="hidden" name="form_id">
+                    <input type="hidden" name="level" value="3">
+                    <button>Check Answer</button>
+                  </form>
+                {% endif %}
+
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Explain the role of diet and exercise in managing hypertension.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="8" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Explain the role of diet and exercise in managing hypertension.">
+                          <button type="submit">Show Answer</button>
+                          <input value="8" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>Explain the role of diet and exercise in managing hypertension.</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="8">
+                        <input type="hidden" name="level" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+            
+                {% if status9 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>What are the psychological impacts of living with a chronic illness?</strong>
+                            <input type="hidden" name="level" value="3">
+                            <input type="hidden" name="question" value="What are the psychological impacts of living with a chronic illness?">
+                            <br>
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="9" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>What are the psychological impacts of living with a chronic illness?</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What are the psychological impacts of living with a chronic illness?">
+                          <button type="submit">Show Answer</button>
+                          <input value="9" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>What are the psychological impacts of living with a chronic illness?</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="9">
+                        <input type="hidden" name="level" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+            
+                {% if status10 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>Describe the symptoms and management of multiple sclerosis.</strong>
+                            <input type="hidden" name="question" value="Describe the symptoms and management of multiple sclerosis.">
+                            <br>
+                            <input type="hidden" name="level" value="3">
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="10" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+                  
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Describe the symptoms and management of multiple sclerosis.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input value="10" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Describe the symptoms and management of multiple sclerosis.">
+                          <button type="submit">Show Answer</button>
+                          <input type="hidden" name="level" value="3">
+                          <input value="10" type="hidden" name="form_id">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <strong>Describe the symptoms and management of multiple sclerosis.</strong>
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="10">
+                        <input type="hidden" name="level" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+            
+            
+                {% if status11 == "display" %}
+                    {% if question == "display" %}
+                        <form action="/gemini" method="post" class="que">
+                            <strong>What is the difference between an epidemic and a pandemic?</strong>
+                            <input type="hidden" name="question" value="What is the difference between an epidemic and a pandemic?">
+                            <br>
+                            <input type="hidden" name="level" value="3">
+                            <textarea name="answer" rows="4" cols="50" required></textarea>
+                            <input value="11" type="hidden" name="form_id">
+                            <button>Check Answer</button>
+                        </form>
+                    {% endif %}
+
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>What is the difference between an epidemic and a pandemic?</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input type="hidden" name="level" value="3">
+                          <input value="11" type="hidden" name="form_id">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="What is the difference between an epidemic and a pandemic?">
+                          <button type="submit">Show Answer</button>
+                          <input value="11" type="hidden" name="form_id">
+                          <input type="hidden" name="level" value="3">
+                          {% if status == "ok" %}
+                              <a name="AI1">{{ ai_answers }}</a>
+                          {% endif %}
+                      </form>
+              
+                  {% elif ai_answers == "" %}
+                    <p style="font-weight: bold;">CORRECT ANSWER</p>
+                    <form action="/next" method="post" class="que">
+                        <input type="hidden" name="form_id" value="11">
+                        <input type="hidden" name="level" value="3">
+                        <button>NEXT</button>
+                    </form>
+                  {% endif %}
+              {% endif %}
+            
+            
+              {% if status12 == "display" %}
+                {% if question == "display" %}
+                  <form action="/gemini" method="post" class="que">
+                      <strong>Describe the symptoms and treatment of tuberculosis.</strong>
+                      <input type="hidden" name="question" value="Describe the symptoms and treatment of tuberculosis.">
+                      <br>
+                      <textarea name="answer" rows="4" cols="50" required></textarea>
+                      <input type="hidden" name="form_id" value="12">
+                      <input type="hidden" name="level" value="3">
+                      <button type="submit">Check Answer</button>
+                  </form>
+                {% endif %}
+              
+                  {% if ai_answers %}
+                      <p style="font-weight: bold;">WRONG ANSWER ! TRY AGAIN</p>
+                      <strong>Describe the symptoms and treatment of tuberculosis.</strong>
+                      <form action="/rewrite" method="post" class="que">
+                          <input type="hidden" name="form_id" value="12">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Re-write</button>
+                      </form>
+              
+                      <form action="/show_answer" method="post" class="que">
+                          <input type="hidden" name="question" value="Describe the symptoms and treatment of tuberculosis.">
+                          <input type="hidden" name="form_id" value="12">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">Show Answer</button>
+                      </form>
+              
+                      {% if status == "ok" %}
+                          <p><strong>AI Answer:</strong> {{ ai_answers }}</p>
+                      {% endif %}
+              
+                  {% else %}
+                      <p>Correct Answer</p>
+                      <form action="/next" method="post" class="que">
+                          <input type="hidden" name="form_id" value="12">
+                          <input type="hidden" name="level" value="3">
+                          <button type="submit">NEXT</button>
+                      </form>
+                  {% endif %}  
+          
+              {% endif %} 
+</div>
+</body>
+</html>

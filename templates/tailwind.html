@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gold Glow Button</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional: Smooth glowing transition for custom effect */
+    .glow-gold:active {
+      box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+
+  <button class="bg-yellow-500 text-white font-bold py-3 px-6 rounded-xl shadow-md 
+                 active:bg-yellow-600 transition-all duration-200 ease-in-out glow-gold">
+    Click Me ✨
+  </button>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Medical Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% if level == 1 %}
+        <a style="color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Milestone Achieved! Level 1 Completed!</a>
+        <div class="badge-container">
+            <img src="static/bad1.png" alt="bad1.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button class="bad_but">Next</button>
+            </form>
+        </div>
+    {% elif level == 2 %}
+        <a style="font-style: italic; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Great Progress! Level 2 Unlocked!</a>
+        <div class="badge-container">
+            <img src="static/bad2.png" alt="bad2.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 3 %}
+        <a style="text-decoration: underline; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Fantastic! You've reached Level 3!</a>
+        <div class="badge-container">
+            <img src="static/bad3.png" alt="bad3.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 4 %}
+        <a style="font-family: 'Courier New', monospace; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Level 4 Conquered! Keep Going!</a>
+        <div class="badge-container">
+            <img src="static/bad4.png" alt="bad4.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 5 %}
+        <a style="text-shadow: 2px 2px 4px #000000; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Halfway There! Level 5 Mastered!</a>
+        <div class="badge-container">
+            <img src="static/bad5.png" alt="bad5.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 6 %}
+        <a style="letter-spacing: 1px; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Advancing! Level 6 Achieved!</a>
+        <div class="badge-container">
+            <img src="static/bad6.png" alt="bad6.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 7 %}
+        <a style="border-bottom: 2px dotted gold; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Impressive! Level 7 Completed!</a>
+        <div class="badge-container">
+            <img src="static/bad7.png" alt="bad7.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 8 %}
+        <a style="word-spacing: 5px; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Nearly There! Level 8 Unlocked!</a>
+        <div class="badge-container">
+            <img src="static/bad8.png" alt="bad8.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% elif level == 9 %}
+        <a style="background-color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large; padding: 5px; border-radius: 5px; color: black;">Almost at the Peak! Level 9 Reached!</a>
+        <div class="badge-container">
+            <img src="static/bad9.png" alt="bad9.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+            <form action="complete" method="post" class="nxt_badge">
+                <button>Next</button>
+            </form>
+        </div>
+    {% else %}
+        <a style="font-size: 1.2em; color: rgba(255, 215, 0, 1); font-weight: bold; font-size:x-large;">Apex Achieved! Level 10 Completed! Congratulations!</a>
+        <div class="badge-container">
+            <img src="static/bad10.png" alt="bad10.png" style="box-shadow: 0px 4px 15px rgba(255, 215, 0, 1); border-radius: 100px;">
+        </div>
+    {% endif %}
+</body>
+</html>

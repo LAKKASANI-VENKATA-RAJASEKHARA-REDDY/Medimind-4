@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - Unlock Your Potential!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black; /* Black Background */
+            color: gold; /* Gold Text */
+        }
+
+        .div-container {
+            background-color: #1a1a1a; /* Darker background for container */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            width: 350px;
+            text-align: center;
+            border: 2px solid gold; /* Gold border */
+        }
+
+        h2 {
+            color: gold;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        p {
+            color: #d4af37; /* Lighter gold for paragraphs */
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: gold;
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 2px solid #d4af37;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #333; /* Darker input background */
+            color: gold;
+        }
+
+        button[type="submit"] {
+            background-color: gold;
+            color: black;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ffd700; /* Slightly brighter gold on hover */
+        }
+
+        .star-icon {
+            color: gold;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-container">
+        <span class="star-icon">&#9733;</span>
+        <h2>Enter the Code to Level Up!</h2>
+        <p>Your journey to unlocking new challenges is one step away. Enter the 6-digit code we sent to your email to verify your account.</p>
+        <form method="post">
+            <label for="otp">Verification Code:</label>
+            <input type="text" name="otp" required placeholder="XXXXXX">
+            <button type="submit">Verify & Proceed</button>
+        </form>
+    </div>
+</body>
+</html>
