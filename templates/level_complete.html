@@ -18,9 +18,7 @@
           <button>YES</button>
         </form>
   
-        <form action="/home_again" method="get">
-          <button>NO</button>
-        </form>
+        <a href="{{url_for('home')}}" style="font-family: roboto; font-size: large;">Nah! I will go home</a>
       {% elif level == 2 %}
         <section>
             <strong>Contagion contained. Ready to manage the long-term impacts of chronic conditions?</strong>
