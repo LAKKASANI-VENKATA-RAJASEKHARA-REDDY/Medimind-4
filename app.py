@@ -8,10 +8,11 @@ import mysql.connector
 
 def create_db_connection():
     return mysql.connector.connect(
-        host="localhost",
+        host="mainline.proxy.rlwy.net",
         user="root",
-        password="Sekhar@26",
-        database="Medimind"
+        password="hAVcUuqmaYCGjasjfFZUrEQaSkdqrIYO",
+        database="railway",
+        port=20797
     )
 
 genai.configure(api_key="AIzaSyCXWcN9zWhx7qYARfieyryTzPgMygYVKlk")
@@ -204,41 +205,44 @@ def profile_info():
         level = "Unknown"
 
     # ✅ Prevent KeyError if `avg` is missing in session
-    conn = create_db_connection()
-    cursor = conn.cursor(dictionary=True)  
-    cursor.execute("SELECT accuracy FROM users_md WHERE email=%s", (email,))
-    accuracy_db = cursor.fetchone()  
-    accuracy = accuracy_db['accuracy']
+    try:
+        conn = create_db_connection()
+        cursor = conn.cursor(dictionary=True)  
+        cursor.execute("SELECT accuracy FROM users_md WHERE email=%s", (email,))
+        accuracy_db = cursor.fetchone()  
+        accuracy = accuracy_db['accuracy']
 
-    conn = create_db_connection()
-    cursor = conn.cursor(dictionary=True)  
-    cursor.execute("SELECT * FROM users_md WHERE email=%s", (email,))
-    det_db = cursor.fetchone()  
-    correct = det_db['correct']
-    incorrect = det_db['incorrect']
-    total = det_db['total']
-    if level == 1:
-        badge = "ASSOCIATE"
-    elif level == 2:
-        badge = "SPECIALIST"
-    elif level == 3:
-        badge = "ADVISOR"
-    elif level == 4:
-        badge = "CONSULTANT"
-    elif level == 5:
-        badge = "STRATEGIST"
-    elif level == 6:
-        badge = "EXPERT"
-    elif level == 7:
-        badge = "ANALYST"
-    elif level == 8:
-        badge = "SENIOR"
-    elif level == 9:
-        badge = "PRINCIPAL"
-    else:
-        badge = "PIONEER"
+        conn = create_db_connection()
+        cursor = conn.cursor(dictionary=True)  
+        cursor.execute("SELECT * FROM users_md WHERE email=%s", (email,))
+        det_db = cursor.fetchone()  
+        correct = det_db['correct']
+        incorrect = det_db['incorrect']
+        total = det_db['total']
+        if level == 1:
+            badge = "ASSOCIATE"
+        elif level == 2:
+            badge = "SPECIALIST"
+        elif level == 3:
+            badge = "ADVISOR"
+        elif level == 4:
+            badge = "CONSULTANT"
+        elif level == 5:
+            badge = "STRATEGIST"
+        elif level == 6:
+            badge = "EXPERT"
+        elif level == 7:
+            badge = "ANALYST"
+        elif level == 8:
+            badge = "SENIOR"
+        elif level == 9:
+            badge = "PRINCIPAL"
+        else:
+            badge = "PIONEER"
 
-    return render_template('profile.html', name=name, level=level, accuracy=accuracy, total=total, correct=correct, incorrect=incorrect,badge=badge)
+        return render_template('profile.html', name=name, level=level, accuracy=accuracy, total=total, correct=correct, incorrect=incorrect,badge=badge)
+    except:
+        return render_template("login.html")
 
 
 @app.route('/')
