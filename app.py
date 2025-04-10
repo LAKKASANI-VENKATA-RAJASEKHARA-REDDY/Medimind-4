@@ -178,11 +178,9 @@ def login():
 def logout():
     session.clear()
     return redirect(url_for('login'))
-
-
 @app.route('/profile', methods=["POST", "GET"])
 def profile_info():
-    if 'otp' not in session:  # ✅ Check if user is logged in
+    if 'otp' not in session:
         return redirect(url_for('login'))
 
     email = session.get('email')
@@ -191,33 +189,27 @@ def profile_info():
     cursor = conn.cursor(dictionary=True)
 
     cursor.execute("SELECT name, level FROM users_md WHERE email=%s", (email,))
-    user = cursor.fetchone()  # ✅ Fetch name & level in a single query
+    user = cursor.fetchone()
 
     cursor.close()
     conn.close()
 
-    # ✅ Check if user exists before accessing fields
     if user:
         name = user.get('name', "Guest")
         level = user.get('level', "Unknown")
-    else:
-        name = "Guest"
-        level = "Unknown"
 
-    # ✅ Prevent KeyError if `avg` is missing in session
         conn = create_db_connection()
-        cursor = conn.cursor(dictionary=True)  
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT accuracy FROM users_md WHERE email=%s", (email,))
-        accuracy_db = cursor.fetchone()  
-        accuracy = accuracy_db['accuracy']
+        accuracy_db = cursor.fetchone()
+        accuracy = accuracy_db['accuracy'] if accuracy_db else 0
 
-        conn = create_db_connection()
-        cursor = conn.cursor(dictionary=True)  
         cursor.execute("SELECT * FROM users_md WHERE email=%s", (email,))
-        det_db = cursor.fetchone()  
+        det_db = cursor.fetchone()
         correct = det_db['correct']
         incorrect = det_db['incorrect']
         total = det_db['total']
+
         if level == 1:
             badge = "ASSOCIATE"
         elif level == 2:
@@ -239,7 +231,15 @@ def profile_info():
         else:
             badge = "PIONEER"
 
-        return render_template('profile.html', name=name, level=level, accuracy=accuracy, total=total, correct=correct, incorrect=incorrect,badge=badge)
+        cursor.close()
+        conn.close()
+
+        return render_template('profile.html', name=name, level=level, accuracy=accuracy,
+                               total=total, correct=correct, incorrect=incorrect, badge=badge)
+
+    else:
+        return "User not found. Please log in again."
+
    
 
 @app.route('/')
