@@ -248,8 +248,9 @@ def home():
     session['acc_lst'] = []
     return render_template("index.html")
 
-@app.route('/home_again', methods=['GET','POST'])
+@app.route('/home_again', methods=['GET', 'POST'])
 def home_again():
+    print("🧪 Method used:", request.method)
     return render_template("index.html")
 
 @app.route('/Start', methods=["POST"])
