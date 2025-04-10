@@ -205,7 +205,6 @@ def profile_info():
         level = "Unknown"
 
     # ✅ Prevent KeyError if `avg` is missing in session
-    try:
         conn = create_db_connection()
         cursor = conn.cursor(dictionary=True)  
         cursor.execute("SELECT accuracy FROM users_md WHERE email=%s", (email,))
@@ -241,9 +240,7 @@ def profile_info():
             badge = "PIONEER"
 
         return render_template('profile.html', name=name, level=level, accuracy=accuracy, total=total, correct=correct, incorrect=incorrect,badge=badge)
-    except:
-        return render_template("login.html")
-
+   
 
 @app.route('/')
 def home():
