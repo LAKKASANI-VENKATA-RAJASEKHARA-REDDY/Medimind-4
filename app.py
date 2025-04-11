@@ -180,7 +180,7 @@ def logout():
     return redirect(url_for('login'))
 @app.route('/profile', methods=["POST", "GET"])
 def profile_info():
-    if 'otp' not in session:
+    if 'email' not in session:
         return redirect(url_for('login'))
 
     email = session.get('email')
@@ -238,7 +238,7 @@ def profile_info():
                                total=total, correct=correct, incorrect=incorrect, badge=badge)
 
     else:
-        return "User not found. Please log in again."
+        return render_template("login.html")
 
    
 
